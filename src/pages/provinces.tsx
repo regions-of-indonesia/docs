@@ -6,14 +6,14 @@ import { Container, Text } from "@mantine/core";
 
 import { getDocsLayout } from "~/components/layouts";
 
-const IndexPage: NextPageWithLayout = () => {
+const ProvincesPage: NextPageWithLayout = () => {
   return (
     <Container size="xl">
-      <Text>IndexPage</Text>
+      <Text>ProvincesPage</Text>
     </Container>
   );
 };
 
-IndexPage.getLayout = getDocsLayout;
+ProvincesPage.getLayout = getDocsLayout;
 
-export default IndexPage;
+export default ProvincesPage;

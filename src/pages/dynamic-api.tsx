@@ -6,14 +6,14 @@ import { Container, Text } from "@mantine/core";
 
 import { getDocsLayout } from "~/components/layouts";
 
-const IndexPage: NextPageWithLayout = () => {
+const DynamicAPIPage: NextPageWithLayout = () => {
   return (
     <Container size="xl">
-      <Text>IndexPage</Text>
+      <Text>DynamicAPIPage</Text>
     </Container>
   );
 };
 
-IndexPage.getLayout = getDocsLayout;
+DynamicAPIPage.getLayout = getDocsLayout;
 
-export default IndexPage;
+export default DynamicAPIPage;
