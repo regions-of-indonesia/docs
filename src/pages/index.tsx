@@ -2,14 +2,16 @@ import {} from "react";
 
 import type { NextPageWithLayout } from "next";
 
-import { Container, Text } from "@mantine/core";
+import { Container, Stack, Text } from "@mantine/core";
 
 import { getDocsLayout } from "~/components/layouts";
 
 const IndexPage: NextPageWithLayout = () => {
   return (
     <Container size="xl">
-      <Text>IndexPage</Text>
+      <Stack spacing="xl">
+        <Text size="xl">Regions of Indonesia</Text>
+      </Stack>
     </Container>
   );
 };

@@ -8,7 +8,7 @@ import { Prism } from "@mantine/prism";
 import { getDocsLayout } from "~/components/layouts";
 
 const Badges = memo(() => {
-  const name = "@regions-of-indonesia/data";
+  const name = "@regions-of-indonesia/svelte-query";
 
   return (
     <Group>
@@ -22,30 +22,27 @@ const Badges = memo(() => {
 });
 
 const PrismInstallation = memo(() => {
-  const text = `npm install @regions-of-indonesia/data`;
+  const text = `npm install @regions-of-indonesia/svelte-query`;
 
   return <Prism language="bash">{text}</Prism>;
 });
 
 const PrismUsage = memo(() => {
-  const text = `import { Provinces, Districts, Subdistricts, Villages } from "@regions-of-indonesia/data";
+  const text = `import { createSvelteQuery } from "@regions-of-indonesia/svelte-query";
 
-console.log(Provinces);
-// {
-//    "11": "ACEH"
-//    "12": "SUMATERA UTARA",
-//    ...
-// }
+import client from "path/to/regions-of-indonesia-client";
+
+const {} = createSvelteQuery(client)
 `;
 
   return <Prism language="javascript">{text}</Prism>;
 });
 
-const DataPage: NextPageWithLayout = () => {
+const SvelteQueryPage: NextPageWithLayout = () => {
   return (
     <Container size="xl">
       <Stack spacing="xl">
-        <Text size="xl">Regions of Indonesia data</Text>
+        <Text size="xl">Regions of Indonesia svelte-query</Text>
 
         <Badges />
 
@@ -65,6 +62,6 @@ const DataPage: NextPageWithLayout = () => {
   );
 };
 
-DataPage.getLayout = getDocsLayout;
+SvelteQueryPage.getLayout = getDocsLayout;
 
-export default DataPage;
+export default SvelteQueryPage;

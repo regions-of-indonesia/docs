@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 import {
   ActionIcon,
+  Anchor,
   AppShell,
   Box,
   Burger,
@@ -38,7 +39,7 @@ function useRouteMatches() {
 
 function GithubLink() {
   return (
-    <ActionIcon component="a" href={APP.link.github}>
+    <ActionIcon component="a" href={APP.link.github} title="Github">
       <IconBrandGithub />
     </ActionIcon>
   );
@@ -47,7 +48,11 @@ function GithubLink() {
 function ColorSchemeToggler() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
-  return <ActionIcon onClick={() => toggleColorScheme()}>{colorScheme === "dark" ? <IconSun /> : <IconMoon />}</ActionIcon>;
+  return (
+    <ActionIcon onClick={() => toggleColorScheme()} aria-label="Toggle color scheme">
+      {colorScheme === "dark" ? <IconSun /> : <IconMoon />}
+    </ActionIcon>
+  );
 }
 
 function DocsHeader(props: { opened: boolean; onMenuClick: () => void }) {
@@ -58,7 +63,9 @@ function DocsHeader(props: { opened: boolean; onMenuClick: () => void }) {
           <Burger opened={props.opened} onClick={props.onMenuClick} size="sm" mr="xl" />
         </MediaQuery>
 
-        <Text>Regions of Indonesia</Text>
+        <Anchor href="/" size="xl" variant="text" weight={700}>
+          Regions of Indonesia
+        </Anchor>
 
         <Box sx={{ flexGrow: 1 }} />
 
@@ -103,6 +110,11 @@ function DocsNavbarNavLinks() {
         <NavLink href="/data" label="Data" icon={<IconPackage />} variant="light" />
         <NavLink href="/client" label="Client" icon={<IconPackage />} variant="light" />
         <NavLink href="/localforage" label="LocalForage" icon={<IconPackage />} variant="light" />
+        <NavLink href="/swr" label="SWR" icon={<IconPackage />} variant="light" />
+        <NavLink href="/react-query" label="React Query" icon={<IconPackage />} variant="light" />
+        <NavLink href="/solid-query" label="Solid Query" icon={<IconPackage />} variant="light" />
+        <NavLink href="/svelte-query" label="Svelte Query" icon={<IconPackage />} variant="light" />
+        <NavLink href="/vue-query" label="Vue Query" icon={<IconPackage />} variant="light" />
       </MantineNavLink>
 
       <MantineNavLink label="Service" active={matches("/dynamic-api", "/static-api")} childrenOffset={28} variant="subtle" defaultOpened>
