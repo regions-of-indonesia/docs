@@ -2,7 +2,7 @@ import {} from "react";
 
 import type { NextPageWithLayout } from "next";
 
-import { Container, Stack, Text } from "@mantine/core";
+import { Alert, Container, Stack, Text } from "@mantine/core";
 
 import { getDocsLayout } from "~/components/layouts";
 
@@ -11,6 +11,8 @@ const VillagesPage: NextPageWithLayout = () => {
     <Container size="xl">
       <Stack spacing="xl">
         <Text size="xl">Villages</Text>
+
+        <Alert>TODO: Interactive Request</Alert>
       </Stack>
     </Container>
   );

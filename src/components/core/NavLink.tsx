@@ -7,24 +7,16 @@ import type { LinkProps as NextLinkProps } from "next/link";
 import { NavLink as MantineNavLink } from "@mantine/core";
 import type { NavLinkProps as MantineNavLinkProps } from "@mantine/core";
 
-type NavLinkProps = MantineNavLinkProps & NextLinkProps & { caseSensitive?: boolean };
+type NavLinkProps = MantineNavLinkProps & NextLinkProps;
 
 const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>((props, ref) => {
-  const { href, as, replace, scroll, shallow, passHref = true, locale, prefetch, legacyBehavior, caseSensitive, ...rest } = props;
-
-  const router = useRouter();
-
-  let locationPathname = router.asPath;
-  let toPathname = href.toString();
-  if (!caseSensitive) {
-    locationPathname = locationPathname.toLowerCase();
-    toPathname = toPathname.toLowerCase();
-  }
-
-  const active = locationPathname === toPathname;
+  const { href, as, replace, scroll, shallow, passHref = true, locale, prefetch, legacyBehavior, ...rest } = props,
+    router = useRouter();
 
   return (
-    <NextLink
+    <MantineNavLink
+      ref={ref}
+      component={NextLink}
       href={href}
       as={as}
       replace={replace}
@@ -34,11 +26,11 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>((props, ref) => {
       locale={locale}
       prefetch={prefetch}
       legacyBehavior={legacyBehavior}
-    >
-      <MantineNavLink ref={ref} component="a" active={active} {...rest} />
-    </NextLink>
+      active={router.asPath === href.toString()}
+      {...rest}
+    />
   );
 });
 
 export type { NavLinkProps };
-export default NavLink;
+export { NavLink };

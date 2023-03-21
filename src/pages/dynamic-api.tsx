@@ -7,7 +7,7 @@ import { Anchor, Container, Stack, Table, Text } from "@mantine/core";
 import { getDocsLayout } from "~/components/layouts";
 
 const AnchorEndpoint = memo((props: { pathname: string; params?: { [key: string]: string }; queries?: { [key: string]: string } }) => {
-  const base = "https://regions-of-indonesia.deta.dev";
+  const base = "https://regions-of-indonesia.deno.dev";
 
   let pathname = props.pathname;
 
@@ -93,31 +93,31 @@ const Endpoints = memo(() => {
 
         <tr>
           <td>
-            <AnchorEndpoint pathname="/search" queries={{ text: "a" }} />
+            <AnchorEndpoint pathname="/search" queries={{ name: "a" }} />
           </td>
         </tr>
 
         <tr>
           <td>
-            <AnchorEndpoint pathname="/search/provinces" queries={{ text: "a" }} />
+            <AnchorEndpoint pathname="/search/provinces" queries={{ name: "a" }} />
           </td>
         </tr>
 
         <tr>
           <td>
-            <AnchorEndpoint pathname="/search/districts" queries={{ text: "a" }} />
+            <AnchorEndpoint pathname="/search/districts" queries={{ name: "a" }} />
           </td>
         </tr>
 
         <tr>
           <td>
-            <AnchorEndpoint pathname="/search/subdistricts" queries={{ text: "a" }} />
+            <AnchorEndpoint pathname="/search/subdistricts" queries={{ name: "a" }} />
           </td>
         </tr>
 
         <tr>
           <td>
-            <AnchorEndpoint pathname="/search/villages" queries={{ text: "a" }} />
+            <AnchorEndpoint pathname="/search/villages" queries={{ name: "a" }} />
           </td>
         </tr>
       </tbody>

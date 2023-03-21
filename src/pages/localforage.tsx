@@ -2,30 +2,13 @@ import { memo } from "react";
 
 import type { NextPageWithLayout } from "next";
 
-import { Container, Group, Stack, Text } from "@mantine/core";
+import { Container, Stack, Text } from "@mantine/core";
 import { Prism } from "@mantine/prism";
 
+import { createPackageComponent } from "~/components/core";
 import { getDocsLayout } from "~/components/layouts";
 
-const Badges = memo(() => {
-  const name = "@regions-of-indonesia/localforage";
-
-  return (
-    <Group>
-      <img src={`https://badgen.net/npm/v/${name}`} title={`version for ${name}`} />
-      <img src={`https://badgen.net/npm/dt/${name}`} title={`total downloads for ${name}`} />
-      <img src={`https://badgen.net/npm/license/${name}`} title={`license for ${name}`} />
-      <img src={`https://badgen.net/bundlephobia/min/${name}`} title={`minified size for ${name}`} />
-      <img src={`https://badgen.net/bundlephobia/minzip/${name}`} title={`minified + gzip size for ${name}`} />
-    </Group>
-  );
-});
-
-const PrismInstallation = memo(() => {
-  const text = `npm install @regions-of-indonesia/client @regions-of-indonesia/localforage`;
-
-  return <Prism language="bash">{text}</Prism>;
-});
+const { NPMBadgesGroup, PackageInstallationPrism } = createPackageComponent("@regions-of-indonesia/localforage");
 
 const PrismUsage = memo(() => {
   const text = `import { RegionsOfIndonesiaClient, log, cache } from "@regions-of-indonesia/client";
@@ -36,9 +19,17 @@ const driver = createLocalForageDriver();
 const client = new RegionsOfIndonesiaClient({
   middlewares: [log(), cache({ driver })],
 });
+
+async function getAllProvinces() {
+  return await client.province.find();
+};
+
+async function getProvinceByCode(code) {
+  return await client.province.findByCode(code);
+};
 `;
 
-  return <Prism language="javascript">{text}</Prism>;
+  return <Prism language="tsx">{text}</Prism>;
 });
 
 const LocalForagePage: NextPageWithLayout = () => {
@@ -47,12 +38,12 @@ const LocalForagePage: NextPageWithLayout = () => {
       <Stack spacing="xl">
         <Text size="xl">Regions of Indonesia localforage</Text>
 
-        <Badges />
+        <NPMBadgesGroup />
 
         <Stack spacing="xl">
           <Stack spacing="xs">
             <Text>Installation</Text>
-            <PrismInstallation />
+            <PackageInstallationPrism />
           </Stack>
 
           <Stack spacing="xs">

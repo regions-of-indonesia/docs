@@ -4,6 +4,8 @@
   <a href="https://indonesia-api.netlify.app/regions-of-indonesia"><img src="https://raw.githubusercontent.com/indonesia-api/indonesia-api/main/public/Badge.svg?sanitize=true" /></a>
 </p>
 
+<img src="https://hiiits.deno.dev/hit/regions-of-indonesia/docs?" width="100%" heigth="10px" />
+
 # Regions of Indonesia
 
 Regions of Indonesia [docs][docs]
@@ -41,6 +43,8 @@ GPL-3.0
 [github:swr]: https://github.com/regions-of-indonesia/swr
 [github:react-query]: https://github.com/regions-of-indonesia/react-query
 [github:solid-query]: https://github.com/regions-of-indonesia/solid-query
+[github:vue-query]: https://github.com/regions-of-indonesia/vue-query
+[github:svelte-query]: https://github.com/regions-of-indonesia/svelte-query
 [github:example-react-ts]: https://github.com/regions-of-indonesia/example-react-ts
 [github:example-react-ts-swr]: https://github.com/regions-of-indonesia/example-react-ts-swr
 [github:example-react-ts-query]: https://github.com/regions-of-indonesia/example-react-ts-query
