@@ -5,6 +5,7 @@ import type { GetLayout } from "next";
 import { useRouter } from "next/router";
 
 import { ActionIcon, Anchor, Badge, Box, Drawer, Group, NavLink as MantineNavLink, Tooltip, useMantineColorScheme } from "@mantine/core";
+import type { CSSObject, MantineTheme } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
 import { IconBrandGithub, IconList, IconMenu2, IconMoon, IconPackage, IconServer, IconSun } from "@tabler/icons-react";
@@ -92,6 +93,45 @@ function DocsNavbarNavLinks() {
 const HEADERHEIGHT = 56;
 const NAVBARWIDTH = 280;
 
+const sxHeader = (theme: MantineTheme): CSSObject => ({
+  zIndex: 10,
+  backgroundColor: theme.fn.rgba(theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white, 0.7),
+  borderBottom: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[3]}`,
+  backdropFilter: "blur(4px)",
+});
+const sxHeadercontainer: CSSObject = { justifyContent: "space-between", alignItems: "center" };
+const sxActionIconMenu = (theme: MantineTheme): CSSObject => ({
+  [theme.fn.largerThan("sm")]: {
+    display: "none",
+  },
+});
+const sxActionHeader = (theme: MantineTheme): CSSObject => ({ [theme.fn.smallerThan("sm")]: { display: "none" } });
+const sxDesktopNavbar = (theme: MantineTheme): CSSObject => ({
+  zIndex: 10,
+  backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
+  borderRight: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[3]}`,
+  overflow: "auto",
+
+  display: "block",
+
+  [theme.fn.smallerThan("sm")]: {
+    display: "none",
+  },
+});
+const sxActionNavbar = (theme: MantineTheme): CSSObject => ({ [theme.fn.largerThan("sm")]: { display: "none" } });
+const sxMain = (theme: MantineTheme): CSSObject => ({
+  left: NAVBARWIDTH,
+  width: `calc(100% - ${NAVBARWIDTH}px)`,
+  zIndex: 0,
+
+  [theme.fn.smallerThan("sm")]: {
+    left: 0,
+    width: "100%",
+  },
+});
+const sxMainTop: CSSObject = { height: HEADERHEIGHT + 16 };
+const sxMainBottom: CSSObject = { height: (HEADERHEIGHT + 16) / 2 };
+
 function DocsLayout(props: PropsWithChildren) {
   const [drawer, handleDrawer] = useDisclosure();
 
@@ -107,29 +147,10 @@ function DocsLayout(props: PropsWithChildren) {
 
   return (
     <>
-      <Box
-        pos="fixed"
-        top={0}
-        left={0}
-        w="100%"
-        h={HEADERHEIGHT}
-        sx={(theme) => ({
-          zIndex: 10,
-          backgroundColor: theme.fn.rgba(theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white, 0.7),
-          borderBottom: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[3]}`,
-          backdropFilter: "blur(4px)",
-        })}
-      >
-        <Box display="flex" w="100%" h="100%" px="lg" sx={{ justifyContent: "space-between", alignItems: "center" }}>
+      <Box pos="fixed" top={0} left={0} w="100%" h={HEADERHEIGHT} sx={sxHeader}>
+        <Box display="flex" w="100%" h="100%" px="lg" sx={sxHeadercontainer}>
           <Group>
-            <ActionIcon
-              onClick={handleDrawer.open}
-              sx={(theme) => ({
-                [theme.fn.largerThan("sm")]: {
-                  display: "none",
-                },
-              })}
-            >
+            <ActionIcon onClick={handleDrawer.open} sx={sxActionIconMenu}>
               <IconMenu2 />
             </ActionIcon>
 
@@ -140,7 +161,7 @@ function DocsLayout(props: PropsWithChildren) {
             <Badge variant="outline">Beta</Badge>
           </Group>
 
-          <Group>
+          <Group sx={sxActionHeader}>
             <Badge variant="outline">v4.0.0</Badge>
 
             <GithubLink />
@@ -150,49 +171,29 @@ function DocsLayout(props: PropsWithChildren) {
         </Box>
       </Box>
 
-      <Box
-        pos="fixed"
-        top={HEADERHEIGHT}
-        left={0}
-        w={NAVBARWIDTH}
-        h={`calc(100% - ${HEADERHEIGHT}px)`}
-        p="sm"
-        sx={(theme) => ({
-          zIndex: 10,
-          backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
-          borderRight: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[3]}`,
-          overflow: "auto",
-
-          display: "block",
-
-          [theme.fn.smallerThan("sm")]: {
-            display: "none",
-          },
-        })}
-      >
+      <Box pos="fixed" top={HEADERHEIGHT} left={0} w={NAVBARWIDTH} h={`calc(100% - ${HEADERHEIGHT}px)`} p="sm" sx={sxDesktopNavbar}>
         <DocsNavbarNavLinks />
       </Box>
 
-      <Box
-        pos="relative"
-        p="sm"
-        sx={(theme) => ({
-          left: NAVBARWIDTH,
-          width: `calc(100% - ${NAVBARWIDTH}px)`,
-          zIndex: 0,
-
-          [theme.fn.smallerThan("sm")]: {
-            left: 0,
-            width: "100%",
-          },
-        })}
-      >
-        <Box sx={{ height: HEADERHEIGHT + 16 }} />
+      <Box pos="relative" p="sm" sx={sxMain}>
+        <Box sx={sxMainTop} />
         {props.children}
-        <Box sx={{ height: (HEADERHEIGHT + 16) / 2 }} />
+        <Box sx={sxMainBottom} />
       </Box>
 
       <Drawer opened={drawer} onClose={handleDrawer.close} title="Menu" size={NAVBARWIDTH}>
+        <Box my="xl">
+          <Group position="apart" sx={sxActionNavbar}>
+            <Badge variant="outline">v4.0.0</Badge>
+
+            <Group>
+              <GithubLink />
+
+              <ColorSchemeToggler />
+            </Group>
+          </Group>
+        </Box>
+
         <DocsNavbarNavLinks />
       </Drawer>
     </>
