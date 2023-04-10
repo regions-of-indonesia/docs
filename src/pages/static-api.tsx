@@ -61,6 +61,12 @@ const Endpoints = memo(() => {
 
         <tr>
           <td>
+            <AnchorStaticEndpoint pathname="/province/:code/districts" params={{ code: "11" }} />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <AnchorStaticEndpoint pathname="/districts/:province-code" params={{ "province-code": "11" }} />
           </td>
         </tr>
@@ -73,6 +79,12 @@ const Endpoints = memo(() => {
 
         <tr>
           <td>
+            <AnchorStaticEndpoint pathname="/district/:code/subdistricts" params={{ code: "11.01" }} />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             <AnchorStaticEndpoint pathname="/subdistricts/:district-code" params={{ "district-code": "11.01" }} />
           </td>
         </tr>
@@ -80,6 +92,12 @@ const Endpoints = memo(() => {
         <tr>
           <td>
             <AnchorStaticEndpoint pathname="/subdistrict/:code" params={{ code: "11.01.01" }} />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <AnchorStaticEndpoint pathname="/subdistrict/:code/villages" params={{ code: "11.01.01" }} />
           </td>
         </tr>
 

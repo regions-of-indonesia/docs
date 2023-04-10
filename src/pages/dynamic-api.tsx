@@ -97,7 +97,7 @@ const Endpoints = memo(() => {
 
         <tr>
           <td>
-            <AnchorDynamicEndpoint pathname="/region/:code" queries={{ code: "11" }} />
+            <AnchorDynamicEndpoint pathname="/region/:code" params={{ code: "11" }} />
           </td>
         </tr>
 
