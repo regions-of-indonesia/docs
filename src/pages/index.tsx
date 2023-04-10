@@ -6,11 +6,13 @@ import { useRouter } from "next/router";
 import { Card, Container, Grid, Group, Stack, Text } from "@mantine/core";
 
 import {
+  IconBrandGithub,
   IconBrandJavascript,
   IconBrandReact,
   IconBrandSolidjs,
   IconBrandSvelte,
   IconBrandVue,
+  IconDatabase,
   IconList,
   IconPackage,
   IconServer,
@@ -271,6 +273,32 @@ const IndexPage: NextPageWithLayout = () => {
 
                 <Text size="sm" color="dimmed">
                   Github static pages
+                </Text>
+              </Card>
+            </Grid.Col>
+          </Grid>
+        </Stack>
+
+        <Stack>
+          <Group>
+            <IconDatabase />
+
+            <Text size="lg" weight="bold">
+              Data Source
+            </Text>
+          </Group>
+
+          <Grid>
+            <Grid.Col xs={12} sm={6} md={4} xl={3}>
+              <Card component="a" withBorder href="https://github.com/cahyadsn/wilayah" target="_blank">
+                <Group position="apart">
+                  <Text>WILAYAH</Text>
+
+                  <IconBrandGithub />
+                </Group>
+
+                <Text size="sm" color="dimmed">
+                  cahyadsn
                 </Text>
               </Card>
             </Grid.Col>

@@ -48,7 +48,7 @@ function DocsNavbarNavLinks() {
     <Box w="100%" h="100%">
       <NavLink href="/" label="Home" />
 
-      <NavLink href="/examples" label="Examples" />
+      {/* <NavLink href="/examples" label="Examples" /> */}
 
       <MantineNavLink
         label="API"
@@ -141,6 +141,8 @@ function DocsLayout(props: PropsWithChildren) {
           </Group>
 
           <Group>
+            <Badge variant="outline">v4.0.0</Badge>
+
             <GithubLink />
 
             <ColorSchemeToggler />

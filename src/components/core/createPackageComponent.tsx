@@ -4,7 +4,6 @@ import { Group } from "@mantine/core";
 import type { GroupProps } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import { Prism } from "@mantine/prism";
-import type { PrismProps } from "@mantine/prism";
 
 type PackageManager = "npm" | "yarn" | "pnpm";
 const PACKAGEMANAGERS: PackageManager[] = ["npm", "yarn", "pnpm"];
@@ -71,7 +70,7 @@ const createPackageComponent = (name: string) => {
         </Group>
       );
     }),
-    PackageInstallationPrism: memo((props: Partial<PrismProps>) => {
+    PackageInstallationPrism: memo(() => {
       const [value, setValue] = usePackageManager();
 
       return (
