@@ -7,7 +7,7 @@ import compress from "astro-compress";
 
 export default {
   site: "https://regions-of-indonesia.pages.dev",
-  integrations: [solid(), tailwind(), sitemap(), compress()],
+  integrations: [tailwind(), solid(), sitemap(), compress()],
   server: { host: true, port: 1808 },
   compressHTML: true,
 } satisfies AstroUserConfig;
