@@ -1,0 +1,61 @@
+---
+import { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+
+import { HTMLX } from "~/components/core";
+
+export const getStaticPaths = (async () => {
+  const docs = await getCollection("docs");
+
+  return docs.map((doc) => {
+    return {
+      params: { pathname: doc.slug },
+      props: { doc },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { pathname } = Astro.params as Params;
+const { doc } = Astro.props as Props;
+
+const { title } = doc.data;
+const { Content } = await doc.render();
+---
+
+<HTMLX>
+  <div class="flex items-stretch justify-center gap-3 container mx-auto pb-6">
+    <div class="w-48 flex-shrink-0 space-y-3">
+      <div>
+        <a href="/api/province" class="block" class:list={{ "bg-neutral-3": "api/province" === pathname }}>Province</a>
+        <a href="/api/district" class="block" class:list={{ "bg-neutral-3": "api/district" === pathname }}>District</a>
+        <a href="/api/subdistrict" class="block" class:list={{ "bg-neutral-3": "api/subdistrict" === pathname }}>Subdistrict</a>
+        <a href="/api/village" class="block" class:list={{ "bg-neutral-3": "api/village" === pathname }}>Village</a>
+        <a href="/api/region" class="block" class:list={{ "bg-neutral-3": "api/region" === pathname }}>Region</a>
+        <a href="/api/search" class="block" class:list={{ "bg-neutral-3": "api/search" === pathname }}>Search</a>
+      </div>
+      <div>
+        <a href="/package/client" class="block" class:list={{ "bg-neutral-3": "package/client" === pathname }}>Client</a>
+        <a href="/package/data" class="block" class:list={{ "bg-neutral-3": "package/data" === pathname }}>Data</a>
+        <a href="/package/localforage" class="block" class:list={{ "bg-neutral-3": "package/localforage" === pathname }}>LocalForage</a>
+      </div>
+      <div>
+        <a href="/service/dynamic" class="block" class:list={{ "bg-neutral-3": "service/dynamic" === pathname }}>Dynamic</a>
+        <a href="/service/static" class="block" class:list={{ "bg-neutral-3": "service/static" === pathname }}>Static</a>
+      </div>
+    </div>
+
+    <div class="w-auto flex-grow border-l border-dashed border-neutral-6">
+      <div class="p-4 border-b border-dashed border-neutral-6">
+        <h1 class="text-lg">{title}</h1>
+        <span class="text-sm">{`/${pathname}`}</span>
+      </div>
+
+      <div class="p-4">
+        <Content />
+      </div>
+    </div>
+  </div>
+</HTMLX>
