@@ -1,5 +1,39 @@
 ---
-title: Static
+title: Static Service
+github: static
 ---
 
-# Title
+- Framework - Hono (dev)
+- Deployment - Github Pages
+
+## Endpoints
+
+| Endpoint                                                                                                                 | Response |
+| ------------------------------------------------------------------------------------------------------------------------ | -------- |
+| [/static/provinces](https://regions-of-indonesia.github.io/static/provinces.json)                                        | Region[] |
+| [/static/provinces/:code](https://regions-of-indonesia.github.io/static/provinces/11.json)                               | Region   |
+| [/static/provinces/:code/districts](https://regions-of-indonesia.github.io/static/provinces/11/districts.json)           | Region[] |
+| [/static/districts/:code](https://regions-of-indonesia.github.io/static/districts/11.01.json)                            | Region   |
+| [/static/districts/:code/subdistricts](https://regions-of-indonesia.github.io/static/districts/11.01/subdistricts.json)  | Region[] |
+| [/static/subdistricts/:code](https://regions-of-indonesia.github.io/static/subdistricts/11.01.01.json)                   | Region   |
+| [/static/subdistricts/:code/villages](https://regions-of-indonesia.github.io/static/subdistricts/11.01.01/villages.json) | Region[] |
+| [/static/villages/:code](https://regions-of-indonesia.github.io/static/villages/11.01.01.2001.json)                      | Region   |
+| [/static/region/:province-code](https://regions-of-indonesia.github.io/static/region/11.json)                            | Region   |
+| [/static/region/:district-code](https://regions-of-indonesia.github.io/static/region/11.01.json)                         | Region   |
+| [/static/region/:subdistrict-code](https://regions-of-indonesia.github.io/static/region/11.01.01.json)                   | Region   |
+| [/static/region/:village-code](https://regions-of-indonesia.github.io/static/region/11.01.01.2001.json)                  | Region   |
+
+## Performance
+
+tool : autocannon
+
+endpoint : /static/villages/11.01.01.2001.json
+
+| Stat    | 2.5%  | 50%   | 97.5%  | 99%    | Avg      | Stdev    | Max    |
+| ------- | ----- | ----- | ------ | ------ | -------- | -------- | ------ |
+| Latency | 28 ms | 32 ms | 160 ms | 200 ms | 42.24 ms | 37.13 ms | 378 ms |
+
+| Stat      | 1%     | 2.5%   | 50%    | 97.5%  | Avg    | Stdev | Min    |
+| --------- | ------ | ------ | ------ | ------ | ------ | ----- | ------ |
+| Req/Sec   | 149    | 149    | 236    | 309    | 233.4  | 60.22 | 149    |
+| Bytes/Sec | 116 kB | 116 kB | 184 kB | 241 kB | 182 kB | 47 kB | 116 kB |

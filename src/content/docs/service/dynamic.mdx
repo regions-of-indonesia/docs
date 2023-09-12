@@ -1,5 +1,55 @@
 ---
-title: Dynamic
+title: Dynamic Service
+github: dynamic
 ---
 
-# Title
+- Framework - Hono
+- Deployment - Deno Deploy
+
+## Endpoints
+
+| Endpoint                                                                                             | Response |
+| ---------------------------------------------------------------------------------------------------- | -------- |
+| [/provinces](https://regions-of-indonesia.deno.dev/provinces)                                        | Region[] |
+| [/provinces/:code](https://regions-of-indonesia.deno.dev/provinces/11)                               | Region   |
+| [/provinces/:code/districts](https://regions-of-indonesia.deno.dev/provinces/11/districts)           | Region[] |
+| [/districts/:code](https://regions-of-indonesia.deno.dev/districts/11.01)                            | Region   |
+| [/districts/:code/subdistricts](https://regions-of-indonesia.deno.dev/districts/11.01/subdistricts)  | Region[] |
+| [/subdistricts/:code](https://regions-of-indonesia.deno.dev/subdistricts/11.01.01)                   | Region   |
+| [/subdistricts/:code/villages](https://regions-of-indonesia.deno.dev/subdistricts/11.01.01/villages) | Region[] |
+| [/villages/:code](https://regions-of-indonesia.deno.dev/villages/11.01.01.2001)                      | Region   |
+| [/region/:province-code](https://regions-of-indonesia.deno.dev/region/11)                            | Region   |
+| [/region/:district-code](https://regions-of-indonesia.deno.dev/region/11.01)                         | Region   |
+| [/region/:subdistrict-code](https://regions-of-indonesia.deno.dev/region/11.01.01)                   | Region   |
+| [/region/:village-code](https://regions-of-indonesia.deno.dev/region/11.01.01.2001)                  | Region   |
+| [/search?name=name](https://regions-of-indonesia.deno.dev/search?name=a)                             | Region[] |
+| [/search/provinces?name=name](https://regions-of-indonesia.deno.dev/search/provinces?name=a)         | Region[] |
+| [/search/districts?name=name](https://regions-of-indonesia.deno.dev/search/districts?name=a)         | Region[] |
+| [/search/subdistricts?name=name](https://regions-of-indonesia.deno.dev/search/subdistricts?name=a)   | Region[] |
+| [/search/villages?name=name](https://regions-of-indonesia.deno.dev/search/villages?name=a)           | Region[] |
+
+## Performance
+
+tool : autocannon
+
+endpoint : /villages/11.01.01.2001
+
+| Stat    | 2.5%  | 50%   | 97.5% | 99%    | Avg      | Stdev    | Max    |
+| ------- | ----- | ----- | ----- | ------ | -------- | -------- | ------ |
+| Latency | 30 ms | 36 ms | 97 ms | 125 ms | 46.91 ms | 23.64 ms | 323 ms |
+
+| Stat      | 1%      | 2.5%    | 50%     | 97.5% | Avg     | Stdev   | Min     |
+| --------- | ------- | ------- | ------- | ----- | ------- | ------- | ------- |
+| Req/Sec   | 224     | 224     | 262     | 282   | 256.3   | 18.89   | 224     |
+| Bytes/Sec | 64.3 kB | 64.3 kB | 75.2 kB | 81 kB | 73.6 kB | 5.42 kB | 64.3 kB |
+
+endpoint : /search?name=a
+
+| Stat    | 2.5%  | 50%   | 97.5% | 99%    | Avg      | Stdev    | Max    |
+| ------- | ----- | ----- | ----- | ------ | -------- | -------- | ------ |
+| Latency | 35 ms | 47 ms | 80 ms | 108 ms | 49.76 ms | 14.99 ms | 400 ms |
+
+| Stat      | 1%     | 2.5%   | 50%    | 97.5%  | Avg    | Stdev   | Min    |
+| --------- | ------ | ------ | ------ | ------ | ------ | ------- | ------ |
+| Req/Sec   | 189    | 189    | 199    | 217    | 201.6  | 8.61    | 189    |
+| Bytes/Sec | 823 kB | 823 kB | 867 kB | 946 kB | 878 kB | 37.5 kB | 823 kB |

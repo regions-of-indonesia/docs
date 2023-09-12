@@ -1,0 +1,25 @@
+---
+type Props = {
+  name: string;
+  alpha?: boolean;
+  beta?: boolean;
+};
+
+const { name, alpha, beta } = Astro.props;
+---
+
+<div class="not-prose flex items-center gap-1 lg:gap-2">
+  <a title="version" href={`https://www.npmjs.com/package/@regions-of-indonesia/${name}`}>
+    <img
+      alt="version"
+      src={beta
+        ? "https://none.deno.dev/ui/badge?c=orange&t=dark&e=beta"
+        : alpha
+        ? "https://none.deno.dev/ui/badge?c=orange&t=dark&e=alpha"
+        : `https://none.deno.dev/npm/v?t=dark&n=@regions-of-indonesia/${name}`}
+    />
+  </a>
+  <a title="size" href={`https://bundlejs.com/?q=@regions-of-indonesia/${name}`}>
+    <img alt="size" src={`https://none.deno.dev/bundlejs/mz?t=dark&n=@regions-of-indonesia/${name}`} />
+  </a>
+</div>
