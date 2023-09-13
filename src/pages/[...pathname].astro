@@ -32,13 +32,14 @@ type NavLink = {
 };
 
 const getNavLinkClassList = (to: NavLink["to"]) => ({
-  "block px-1.5 py-px text-lg font-medium": true,
-  "bg-neutral-3": to === pathname,
-  [to === pathname ? "text-neutral-12" : "text-neutral-10 hover:text-neutral-11"]: true,
+  "block px-2 py-0.5 text-lg font-medium": true,
+  "bg-primary-9": to === pathname,
+  [to === pathname ? "text-white" : "text-neutral-10 hover:text-neutral-11"]: true,
 });
 
 const NavLinks: NavLink[] = [
   { to: "getting-started", label: "Getting started" },
+  { to: "about", label: "About" },
   { to: "contribute", label: "Contribute" },
   { to: "examples", label: "Examples" },
 ];
@@ -70,22 +71,27 @@ const NavLinks_Service: NavLink[] = [
   { to: "service/static", label: "Static" },
 ];
 
+const NavLinks_SelfHosting: NavLink[] = [
+  { to: "self-hosting/dynamic", label: "Dynamic" },
+  { to: "self-hosting/static", label: "Static" },
+];
+
 const NavLinks_Other: NavLink[] = [{ to: "other/rows", label: "Rows" }];
 ---
 
 <HTMLX title={title} description={description}>
-  <div class="container flex gap-4 lg:gap-5 mx-auto p-4 lg:p-5 w-full h-screen overflow-hidden">
-    <div class="flex-shrink-0 flex flex-col w-52 md:w-56 xl:w-60 h-full">
+  <div class="container flex mx-auto p-4 lg:p-5 max-w-[1728px] h-screen overflow-hidden">
+    <div class="flex-shrink-0 flex flex-col w-56 md:w-60 xl:w-64 h-full">
       <div class="py-3">
         <a href="/" class="text-neutral-11 hover:text-neutral-12 text-base lg:text-lg font-semibold lg:font-bold">Regions of Indonesia</a>
       </div>
 
-      <div class="block border-b border-dashed border-neutral-6 h-px"></div>
+      <div class="block border-b border-neutral-6 h-px"></div>
 
-      <div class="block border-b border-dashed border-neutral-6 py-3">
+      <div class="block border-b border-neutral-6 py-3">
         <h2>
           <span class="flex items-center gap-2 lg:gap-3">
-            <ConstructionIcon client:idle />
+            <ConstructionIcon client:idle class="text-warning-11" />
             <span>Work In Progress</span>
           </span>
         </h2>
@@ -104,7 +110,7 @@ const NavLinks_Other: NavLink[] = [{ to: "other/rows", label: "Rows" }];
 
         <span class="flex items-center justify-between gap-2 lg:gap-3 text-xs lg:text-sm text-neutral-11">
           APIs
-          <span class="flex-grow border-b border-dashed border-neutral-6 h-px"></span>
+          <span class="flex-grow border-b border-neutral-6 h-px"></span>
         </span>
         <div class="px-1 pt-1 pb-2">
           {
@@ -118,7 +124,7 @@ const NavLinks_Other: NavLink[] = [{ to: "other/rows", label: "Rows" }];
 
         <span class="flex items-center justify-between gap-2 lg:gap-3 text-xs lg:text-sm text-neutral-11">
           Packages
-          <span class="flex-grow border-b border-dashed border-neutral-6 h-px"></span>
+          <span class="flex-grow border-b border-neutral-6 h-px"></span>
         </span>
         <div class="px-1 pt-1 pb-2">
           {
@@ -132,7 +138,7 @@ const NavLinks_Other: NavLink[] = [{ to: "other/rows", label: "Rows" }];
 
         <span class="flex items-center justify-between gap-2 lg:gap-3 text-xs lg:text-sm text-neutral-11">
           Services
-          <span class="flex-grow border-b border-dashed border-neutral-6 h-px"></span>
+          <span class="flex-grow border-b border-neutral-6 h-px"></span>
         </span>
         <div class="px-1 pt-1 pb-2">
           {
@@ -145,8 +151,22 @@ const NavLinks_Other: NavLink[] = [{ to: "other/rows", label: "Rows" }];
         </div>
 
         <span class="flex items-center justify-between gap-2 lg:gap-3 text-xs lg:text-sm text-neutral-11">
+          Self-Hosting
+          <span class="flex-grow border-b border-neutral-6 h-px"></span>
+        </span>
+        <div class="px-1 pt-1 pb-2">
+          {
+            NavLinks_SelfHosting.map(({ to, label }) => (
+              <a href={`/${to}`} class:list={getNavLinkClassList(to)}>
+                {label}
+              </a>
+            ))
+          }
+        </div>
+
+        <span class="flex items-center justify-between gap-2 lg:gap-3 text-xs lg:text-sm text-neutral-11">
           Other
-          <span class="flex-grow border-b border-dashed border-neutral-6 h-px"></span>
+          <span class="flex-grow border-b border-neutral-6 h-px"></span>
         </span>
         <div class="px-1 pt-1 pb-2">
           {
@@ -160,8 +180,13 @@ const NavLinks_Other: NavLink[] = [{ to: "other/rows", label: "Rows" }];
       </div>
     </div>
 
-    <div class="flex-grow flex flex-col w-auto h-full border-l border-dashed border-neutral-6 overflow-hidden">
-      <div class="p-2 md:p-4 xl:p-6 border-b border-dashed border-neutral-6">
+    <div class="flex-shrink-0 flex gap-1 p-2 lg:p-4 h-full">
+      <div class="w-px h-full bg-gradient-to-b from-[#ff0000]/80 to-transparent rounded-full"></div>
+      <div class="w-px h-full bg-gradient-to-b from-[#ffffff]/80 to-transparent rounded-full"></div>
+    </div>
+
+    <div class="flex-grow flex flex-col w-auto h-full overflow-hidden">
+      <div class="flex-shrink-0 p-2 md:p-4 xl:p-6">
         <h1 class="flex items-center gap-2 lg:gap-4 text-xl md:text-2xl xl:text-3xl font-semibold lg:font-bold">
           {title}
 
@@ -185,8 +210,15 @@ const NavLinks_Other: NavLink[] = [{ to: "other/rows", label: "Rows" }];
         </h1>
       </div>
 
+      <div class="flex-shrink-0 flex flex-col gap-1">
+        <div class="h-px bg-gradient-to-r from-[#ff0000]/80 to-transparent rounded-full"></div>
+        <div class="h-px bg-gradient-to-r from-[#ffffff]/80 to-transparent rounded-full"></div>
+      </div>
+
       <div class="flex-grow prose prose-main p-2 md:p-4 xl:p-6 max-w-none overflow-auto">
-        <Content />
+        <div class="container mx-auto max-w-screen-xl">
+          <Content />
+        </div>
       </div>
     </div>
   </div>

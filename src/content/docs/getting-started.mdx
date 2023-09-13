@@ -2,13 +2,13 @@
 title: Getting started
 ---
 
-import { BlocksIcon, PackageIcon, ServerIcon } from "lucide-solid";
+import { ShapesIcon, PackageIcon, ServerIcon, ServerCogIcon } from "lucide-solid";
 
 ## Learn
 
 <h3>
   <span class="flex items-center gap-2 lg:gap-3">
-    <BlocksIcon />
+    <ShapesIcon client:idle />
     <span>APIs</span>
   </span>
 </h3>
@@ -18,43 +18,49 @@ import { BlocksIcon, PackageIcon, ServerIcon } from "lucide-solid";
     <a
       role="button"
       href="/api/province"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="code" src="https://none.deno.dev/ui/icon/lucide?i=code" />
       Province
     </a>
     <a
       role="button"
       href="/api/district"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="code" src="https://none.deno.dev/ui/icon/lucide?i=code" />
       District
     </a>
     <a
       role="button"
       href="/api/subdistrict"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="code" src="https://none.deno.dev/ui/icon/lucide?i=code" />
       Subdistrict
     </a>
     <a
       role="button"
       href="/api/village"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="code" src="https://none.deno.dev/ui/icon/lucide?i=code" />
       Village
     </a>
     <a
       role="button"
       href="/api/region"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="code" src="https://none.deno.dev/ui/icon/lucide?i=code" />
       Region
     </a>
     <a
       role="button"
       href="/api/search"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="code" src="https://none.deno.dev/ui/icon/lucide?i=code" />
       Search
     </a>
   </div>
@@ -62,7 +68,7 @@ import { BlocksIcon, PackageIcon, ServerIcon } from "lucide-solid";
 
 <h3>
   <span class="flex items-center gap-2 lg:gap-3">
-    <PackageIcon />
+    <PackageIcon client:idle />
     <span>Package</span>
   </span>
 </h3>
@@ -72,79 +78,129 @@ import { BlocksIcon, PackageIcon, ServerIcon } from "lucide-solid";
     <a
       role="button"
       href="/package/client"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="javascript" src="https://none.deno.dev/ui/icon/simple?i=javascript" />
       Client
     </a>
     <a
       role="button"
       href="/package/data"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="javascript" src="https://none.deno.dev/ui/icon/simple?i=javascript" />
       Data
     </a>
     <a
       role="button"
       href="/package/types"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="javascript" src="https://none.deno.dev/ui/icon/simple?i=javascript" />
       Types
     </a>
     <a
       role="button"
       href="/package/utils"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="javascript" src="https://none.deno.dev/ui/icon/simple?i=javascript" />
       Utils
     </a>
     <a
       role="button"
       href="/package/localforage"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="javascript" src="https://none.deno.dev/ui/icon/simple?i=javascript" />
       LocalForage
     </a>
     <a
       role="button"
       href="/package/swr"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="javascript" src="https://none.deno.dev/ui/icon/simple?i=javascript" />
       SWR
     </a>
     <a
       role="button"
       href="/package/react-query"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="javascript" src="https://none.deno.dev/ui/icon/simple?i=javascript" />
       React Query
     </a>
     <a
       role="button"
       href="/package/solid-query"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="javascript" src="https://none.deno.dev/ui/icon/simple?i=javascript" />
       Solid Query
     </a>
     <a
       role="button"
       href="/package/svelte-query"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="javascript" src="https://none.deno.dev/ui/icon/simple?i=javascript" />
       Svelte Query
     </a>
     <a
       role="button"
       href="/package/vue-query"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="javascript" src="https://none.deno.dev/ui/icon/simple?i=javascript" />
       Vue Query
+    </a>
+    <a
+      role="button"
+      href="/package/client-php"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-2 rounded-xl text-neutral-9 cursor-not-allowed"
+    >
+      <img class="w-4 h-4" alt="php" src="https://none.deno.dev/ui/icon/simple?i=php" />
+      Client PHP
+    </a>
+    <a
+      role="button"
+      href="/package/client-py"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-2 rounded-xl text-neutral-9 cursor-not-allowed"
+    >
+      <img class="w-4 h-4" alt="python" src="https://none.deno.dev/ui/icon/simple?i=python" />
+      Client Python
+    </a>
+    <a
+      role="button"
+      href="/package/client-dart"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-2 rounded-xl text-neutral-9 cursor-not-allowed"
+    >
+      <img class="w-4 h-4" alt="dart" src="https://none.deno.dev/ui/icon/simple?i=dart" />
+      Client Dart
+    </a>
+    <a
+      role="button"
+      href="/package/client-rs"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-2 rounded-xl text-neutral-9 cursor-not-allowed"
+    >
+      <img class="w-4 h-4" alt="rust" src="https://none.deno.dev/ui/icon/simple?i=rust" />
+      Client Rust
+    </a>
+    <a
+      role="button"
+      href="/package/client-go"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-2 rounded-xl text-neutral-9 cursor-not-allowed"
+    >
+      <img class="w-4 h-4" alt="go" src="https://none.deno.dev/ui/icon/simple?i=go" />
+      Client Go
     </a>
   </div>
 </div>
 
 <h3>
   <span class="flex items-center gap-2 lg:gap-3">
-    <ServerIcon />
+    <ServerIcon client:idle />
     <span>Services</span>
   </span>
 </h3>
@@ -154,16 +210,66 @@ import { BlocksIcon, PackageIcon, ServerIcon } from "lucide-solid";
     <a
       role="button"
       href="/service/dynamic"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="hard-drive" src="https://none.deno.dev/ui/icon/lucide?i=hard-drive" />
       Dynamic
     </a>
     <a
       role="button"
       href="/service/static"
-      class="block px-6 py-4 text-base md:text-lg xl:text-xl border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
     >
+      <img class="w-4 h-4" alt="hard-drive" src="https://none.deno.dev/ui/icon/lucide?i=hard-drive" />
       Static
+    </a>
+  </div>
+</div>
+
+<h3>
+  <span class="flex items-center gap-2 lg:gap-3">
+    <ServerCogIcon client:idle />
+    <span>Self-Hosting</span>
+  </span>
+</h3>
+
+<div class="not-prose p-2">
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-1 md:gap-2 xl:gap-3">
+    <a
+      role="button"
+      href="/self-hosting/dynamic"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+    >
+      <img class="w-4 h-4" alt="hard-drive" src="https://none.deno.dev/ui/icon/lucide?i=hard-drive" />
+      Dynamic
+    </a>
+    <a
+      role="button"
+      href="/self-hosting/static"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+    >
+      <img class="w-4 h-4" alt="hard-drive" src="https://none.deno.dev/ui/icon/lucide?i=hard-drive" />
+      Static
+    </a>
+  </div>
+</div>
+
+<h3>
+  <span class="flex items-center gap-2 lg:gap-3">
+    <ServerCogIcon client:idle />
+    <span>Other</span>
+  </span>
+</h3>
+
+<div class="not-prose p-2">
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-1 md:gap-2 xl:gap-3">
+    <a
+      role="button"
+      href="/other/rows"
+      class="flex items-center gap-2 lg:gap-3 px-6 py-4 text-base lg:text-lg border border-neutral-3 rounded-xl text-neutral-11 hover:text-neutral-12 hover:border-neutral-6"
+    >
+      <img class="w-4 h-4" alt="list" src="https://none.deno.dev/ui/icon/lucide?i=list" />
+      Rows
     </a>
   </div>
 </div>
