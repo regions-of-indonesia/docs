@@ -16,3 +16,34 @@ yarn add @regions-of-indonesia/client
 # or
 pnpm add @regions-of-indonesia/client
 ```
+
+## Usage
+
+```typescript
+import { create } from "@regions-of-indonesia/client";
+
+const client = create();
+
+client.province.find(); // Promise<Region[]>
+client.province.find.by("11"); // Promise<Region>
+
+client.district.find("11"); // Promise<Region[]>
+client.district.find.by("11.01"); // Promise<Region>
+
+client.subdistrict.find("11.01"); // Promise<Region[]>
+client.subdistrict.find.by("11.01.01"); // Promise<Region>
+
+client.village.find("11.01.01"); // Promise<Region[]>
+client.village.find.by("11.01.01.2001"); // Promise<Region>
+
+client.region("11"); // Promise<Region>
+client.region("11.01"); // Promise<Region>
+client.region("11.01.01"); // Promise<Region>
+client.region("11.01.01.2001"); // Promise<Region>
+
+client.search("a"); // Promise<Region[]>
+client.search.provinces("a"); // Promise<Region[]>
+client.search.districts("a"); // Promise<Region[]>
+client.search.subdistricts("a"); // Promise<Region[]>
+client.search.villages("a"); // Promise<Region[]>
+```
