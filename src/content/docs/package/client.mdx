@@ -26,15 +26,19 @@ const client = create();
 
 client.province.find(); // Promise<Region[]>
 client.province.find.by("11"); // Promise<Region>
+client.province.search("a"); // Promise<Region[]>
 
 client.district.find("11"); // Promise<Region[]>
 client.district.find.by("11.01"); // Promise<Region>
+client.district.search("a"); // Promise<Region[]>
 
 client.subdistrict.find("11.01"); // Promise<Region[]>
 client.subdistrict.find.by("11.01.01"); // Promise<Region>
+client.subdistrict.search("a"); // Promise<Region[]>
 
 client.village.find("11.01.01"); // Promise<Region[]>
 client.village.find.by("11.01.01.2001"); // Promise<Region>
+client.village.search("a"); // Promise<Region[]>
 
 client.region("11"); // Promise<Region>
 client.region("11.01"); // Promise<Region>

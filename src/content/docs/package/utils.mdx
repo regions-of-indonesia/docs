@@ -16,3 +16,18 @@ yarn add @regions-of-indonesia/utils
 # or
 pnpm add @regions-of-indonesia/utils
 ```
+
+## Usage
+
+```typescript
+import { isRegionCode, isRegionName, isRegion, isRegions, joinRegionCode, splitRegionCode } from "@regions-of-indonesia/utils";
+
+isRegionCode("11"); // true
+isRegionName("ACEH"); // true
+
+isRegion({ code: "11", name: "ACEH" }); // true
+isRegions([{ code: "11", name: "ACEH" }]); // true
+
+joinRegionCode(["11", "01", "01", "2001"]); // "11.01.01.2001"
+splitRegionCode("11.01.01.2001"); // ["11", "01", "01", "2001"]
+```

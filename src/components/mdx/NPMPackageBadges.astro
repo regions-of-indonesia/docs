@@ -13,13 +13,13 @@ const { name, alpha, beta } = Astro.props;
     <img
       alt="version"
       src={beta
-        ? "https://none.deno.dev/ui/badge?c=orange&t=dark&e=beta"
+        ? "https://none.deno.dev/ui/badge?c=orange&e=beta"
         : alpha
-        ? "https://none.deno.dev/ui/badge?c=orange&t=dark&e=alpha"
-        : `https://none.deno.dev/npm/v/@regions-of-indonesia/${name}?t=dark`}
+        ? "https://none.deno.dev/ui/badge?c=orange&e=alpha"
+        : `https://none.deno.dev/npm/v/@regions-of-indonesia/${name}`}
     />
   </a>
   <a title="size" href={`https://bundlejs.com/?q=@regions-of-indonesia/${name}`}>
-    <img alt="size" src={`https://none.deno.dev/bundlejs/mz/@regions-of-indonesia/${name}?t=dark`} />
+    <img alt="size" src={`https://none.deno.dev/bundlejs/mz/@regions-of-indonesia/${name}`} />
   </a>
 </div>
