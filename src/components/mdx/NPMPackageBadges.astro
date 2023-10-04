@@ -9,7 +9,11 @@ const { name, alpha, beta } = Astro.props;
 ---
 
 <div class="not-prose flex items-center gap-1 lg:gap-2">
-  <a title="version" href={`https://www.npmjs.com/package/@regions-of-indonesia/${name}`}>
+  <a
+    title="version"
+    class="outline-none p-px rounded-full focus-visible:ring-1 focus-visible:ring-neutral-9"
+    href={`https://www.npmjs.com/package/@regions-of-indonesia/${name}`}
+  >
     <img
       alt="version"
       src={beta
@@ -19,7 +23,11 @@ const { name, alpha, beta } = Astro.props;
         : `https://none.deno.dev/npm/v/@regions-of-indonesia/${name}`}
     />
   </a>
-  <a title="size" href={`https://bundlejs.com/?q=@regions-of-indonesia/${name}`}>
+  <a
+    title="size"
+    class="outline-none p-px rounded-full focus-visible:ring-1 focus-visible:ring-neutral-9"
+    href={`https://bundlejs.com/?q=@regions-of-indonesia/${name}`}
+  >
     <img alt="size" src={`https://none.deno.dev/bundlejs/mz/@regions-of-indonesia/${name}`} />
   </a>
 </div>
