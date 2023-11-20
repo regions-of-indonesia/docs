@@ -1,7 +1,4 @@
 {
-  "files.associations": {
-    "*.mdx": "markdown"
-  },
   "tailwindCSS.experimental.classRegex": [
     ["klass\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["klass\\<.*?\\>\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],

@@ -20,5 +20,24 @@ pnpm add @regions-of-indonesia/svelte-query
 ## Usage
 
 ```typescript
-import {} from "@regions-of-indonesia/svelte-query";
+import { create } from "@regions-of-indonesia/svelte-query";
+
+import client from "./path/to/client";
+
+const {
+  createProvinces,
+  createProvince,
+  createDistricts,
+  createDistrict,
+  createSubdistricts,
+  createSubdistrict,
+  createVillages,
+  createVillage,
+  createRegion,
+  createSearch,
+  createSearchProvinces,
+  createSearchDistricts,
+  createSearchSubdistricts,
+  createSearchVillages,
+} = create(client);
 ```

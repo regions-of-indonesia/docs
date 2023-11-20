@@ -20,5 +20,14 @@ pnpm add @regions-of-indonesia/localforage
 ## Usage
 
 ```typescript
-import {} from "@regions-of-indonesia/localforage";
+import { create } from "@regions-of-indonesia/client";
+import { createLocalForageDriver } from "@regions-of-indonesia/localforage";
+
+const client = create({
+  middlewares: [
+    cache({
+      driver: createLocalForageDriver(),
+    }),
+  ],
+});
 ```

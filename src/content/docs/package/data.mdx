@@ -19,6 +19,8 @@ pnpm add @regions-of-indonesia/data
 
 ## Usage
 
+### Named Export
+
 ```typescript
 import { PROVINCE, DISTRICT, SUBDISTRICT, VILLAGE } from "@regions-of-indonesia/data";
 
@@ -27,6 +29,8 @@ console.log(DISTRICT); // Record<string, string>
 console.log(SUBDISTRICT); // Record<string, string>
 console.log(VILLAGE); // Record<string, string>
 ```
+
+### Default Export
 
 ```typescript
 import PROVINCE from "@regions-of-indonesia/data/province";

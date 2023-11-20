@@ -20,5 +20,24 @@ pnpm add @regions-of-indonesia/vue-query
 ## Usage
 
 ```typescript
-import {} from "@regions-of-indonesia/vue-query";
+import { create } from "@regions-of-indonesia/vue-query";
+
+import client from "./path/to/client";
+
+const {
+  useProvinces,
+  useProvince,
+  useDistricts,
+  useDistrict,
+  useSubdistricts,
+  useSubdistrict,
+  useVillages,
+  useVillage,
+  useRegion,
+  useSearch,
+  useSearchProvinces,
+  useSearchDistricts,
+  useSearchSubdistricts,
+  useSearchVillages,
+} = create(client);
 ```

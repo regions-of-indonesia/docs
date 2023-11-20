@@ -25,8 +25,14 @@ import { isRegionCode, isRegionName, isRegion, isRegions, joinRegionCode, splitR
 isRegionCode("11"); // true
 isRegionName("ACEH"); // true
 
-isRegion({ code: "11", name: "ACEH" }); // true
-isRegions([{ code: "11", name: "ACEH" }]); // true
+isRegion({
+  code: "11",
+  name: "ACEH",
+}); // true
+isRegions([
+  { code: "11", name: "ACEH" },
+  { code: "12", name: "SUMATERA UTARA" },
+]); // true
 
 joinRegionCode(["11", "01", "01", "2001"]); // "11.01.01.2001"
 splitRegionCode("11.01.01.2001"); // ["11", "01", "01", "2001"]
